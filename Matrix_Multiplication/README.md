@@ -10,7 +10,7 @@ mpiexec -n <number_of_processes> <executable_name> matrix_m
 
 Example:
 ```cmd
-mpiexec -n 12 ParallelComputing.exe monte_carlo 200000000
+mpiexec -n 12 ParallelComputing.exe matrix_m
 ```
 
 ## Results
