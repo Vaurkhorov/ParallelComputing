@@ -47,6 +47,10 @@ int main(int argc, char* argv[]) {
 		if (is_main_thread) std::cout << "Running Matrix Multiplication:" << std::endl;
 		rc = matrix_multiplication(args);
 		break;
+	case Program::Heat_Sim:
+		if (is_main_thread) std::cout << "Running Heat Simulation:" << std::endl;
+		rc = heat_sim(args);
+		break;
 	default:
 		if (is_main_thread) std::cout << "Invalid program selected." << std::endl;
 		break;

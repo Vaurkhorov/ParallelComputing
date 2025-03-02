@@ -6,6 +6,7 @@ The implementations have been tested on a Windows 11 Machine, compiled using MSV
 
 ## Algorithms
 ### [Monte Carlo Simulation for Pi](Monte_Carlo/README.md)
+### [Matrix Multiplication](Matrix_Multiplication/README.md)
 
 ## Running the code
 To run the code, you need to have MS-MPI installed on your machine.
