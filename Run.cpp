@@ -43,13 +43,16 @@ int main(int argc, char* argv[]) {
 		if (is_main_thread) std::cout << "Running Monte Carlo:" << std::endl;
 		rc = monte_carlo(args);
 		break;
+	case Program::Matrix_Multiplication:
+		if (is_main_thread) std::cout << "Running Matrix Multiplication:" << std::endl;
+		rc = matrix_multiplication(args);
+		break;
 	default:
 		if (is_main_thread) std::cout << "Invalid program selected." << std::endl;
 		break;
 	}
 
 	if (is_main_thread) std::cout << "Total time taken: " << overall_time.stop() << std::endl;
-
 	MPI_Finalize();
 	
 	return rc;

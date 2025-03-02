@@ -140,6 +140,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Matrix_Multiplication\matrix_multiplication.cpp" />
     <ClCompile Include="Monte_Carlo\Monte_Carlo.cpp" />
     <ClCompile Include="Run.cpp" />
   </ItemGroup>

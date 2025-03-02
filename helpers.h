@@ -1,9 +1,12 @@
 ﻿#pragma once
 
 #include <chrono>
+#include <iostream>
+#include <vector>
 
 // 3878 is my r0ll numb3r. 3 at the end of it makes it prime. ¯\_(ツ)_/¯
-const int RANDOM_SEED_MULTIPLIER = 3878'3;
+constexpr int RANDOM_SEED_MULTIPLIER = 3878'3;
+
 
 /**
 * Wrapper class for command line arguments.
@@ -58,7 +61,7 @@ public:
 	* @return The argument at the given index.
 	*/
 	char* get(int index) {
-		return m_argv[index + m_argument_index];
+         		return m_argv[index + m_argument_index];
 	}
 private:
 	int m_argc;
@@ -111,3 +114,110 @@ private:
 	bool m_completed = false;
 	std::chrono::duration<double> m_duration;
 };
+
+namespace DebugTools {
+	inline void ping() {
+		std::cout << "Pong!" << std::endl;
+	}
+}
+
+namespace MatrixTools {
+	template <typename T, size_t X, size_t Y> void peek_at_matrix(T matrix[X][Y], int peek_size) {
+		if (peek_size > X || peek_size > Y) {
+			std::cerr << "Error: peek_size is too large for matrix dimensions!" << std::endl;
+			return;
+		}
+
+		for (int i = 0; i < peek_size; i++) {
+			for (int j = 0; j < peek_size; j++) {
+				std::cout << matrix[i][j] << "\t";
+			}
+			std::cout << "....\t";
+
+			for (int j = Y - peek_size; j < Y; j++) {
+				std::cout << matrix[i][j] << "\t";
+			}
+			std::cout << std::endl;
+		}
+
+		std::cout << ".\n.\n.\n.\n";
+
+		for (int i = X - peek_size; i < X; i++) {
+			for (int j = 0; j < peek_size; j++) {
+				std::cout << matrix[i][j] << "\t";
+			}
+			std::cout << "....\t";
+			for (int j = Y - peek_size; j < Y; j++) {
+				std::cout << matrix[i][j] << "\t";
+			}
+			std::cout << std::endl;
+		}
+	}
+
+	using std::vector;
+	template <typename T, size_t X, size_t Y> void peek_at_matrix_vec(vector<vector<T>> matrix, int peek_size) {
+		if (peek_size > X || peek_size > Y) {
+			std::cerr << "Error: peek_size is too large for matrix dimensions!" << std::endl;
+			return;
+		}
+
+		for (int i = 0; i < peek_size; i++) {
+			for (int j = 0; j < peek_size; j++) {
+				std::cout << matrix[i][j] << "\t";
+			}
+			std::cout << "....\t";
+
+			for (int j = Y - peek_size; j < Y; j++) {
+				std::cout << matrix[i][j] << "\t";
+			}
+			std::cout << std::endl;
+		}
+
+		std::cout << ".\n.\n.\n.\n";
+
+		for (int i = X - peek_size; i < X; i++) {
+			for (int j = 0; j < peek_size; j++) {
+				std::cout << matrix[i][j] << "\t";
+			}
+			std::cout << "....\t";
+			for (int j = Y - peek_size; j < Y; j++) {
+				std::cout << matrix[i][j] << "\t";
+			}
+			std::cout << std::endl;
+		}
+	}
+
+	template <typename T, size_t X, size_t Y> void peek_at_matrix_vec_flattened(vector<T> matrix, int peek_size) {
+		std::cout << std::fixed << std::setprecision(2);
+		if (peek_size > X || peek_size > Y) {
+			std::cerr << "Error: peek_size is too large for matrix dimensions!" << std::endl;
+			return;
+		}
+
+		for (int i = 0; i < peek_size; i++) {
+			for (int j = 0; j < peek_size; j++) {
+				std::cout << matrix[i * Y + j] << "\t";
+			}
+			std::cout << "....\t";
+
+			for (int j = Y - peek_size; j < Y; j++) {
+				std::cout << matrix[i * Y + j] << "\t";
+			}
+			std::cout << std::endl;
+		}
+
+		std::cout << ".\n.\n.\n.\n";
+
+		for (int i = X - peek_size; i < X; i++) {
+			for (int j = 0; j < peek_size; j++) {
+				std::cout << matrix[i * Y + j] << "\t";
+			}
+			std::cout << "....\t";
+			for (int j = Y - peek_size; j < Y; j++) {
+				std::cout << matrix[i * Y + j] << "\t";
+			}
+			std::cout << std::endl;
+		}
+		std::cout << std::defaultfloat << std::setprecision(6);
+	}
+}
