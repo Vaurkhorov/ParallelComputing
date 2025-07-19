@@ -143,7 +143,7 @@
     <ClCompile Include="Heat\Heat_Sim.cpp" />
     <ClCompile Include="Matrix_Multiplication\matrix_multiplication.cpp" />
     <ClCompile Include="Monte_Carlo\Monte_Carlo.cpp" />
-    <ClCompile Include="Run.cpp" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="helpers.h" />
